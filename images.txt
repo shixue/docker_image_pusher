@@ -1,10 +1,1 @@
-docker.io/nginx
-bitnami/nginx
-nginx
-kasmweb/nginx:1.25.3
-# xhofe/alist:latest
---platform=linux/arm64 xiaoyaliu/alist
-python
- # 我是一个美丽的注释
---platform=linux/arm64 arm64v8/nginx:1.26.1-alpine3.19-otel
-k8s.gcr.io/kube-state-metrics/kube-state-metrics:v2.0.0
+docker.io/tensorchord/pgvecto-rs:pg14-v0.2.0@sha256:90724186f0a3517cf6914295b5ab410db9ce23190a2d9d0b9dd6463e3fa298f0
