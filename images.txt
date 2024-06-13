@@ -1,1 +1,1 @@
-breakstring/gpt-sovits:latestwrite
+breakstring/gpt-sovits:latest
