@@ -36,6 +36,8 @@ jobs:
         # instead of using default value to mount to build path, /var/lib/docker/ is really the place we need more spaces.
         build-mount-path: '/var/lib/docker/'
 
+    - name: Restart docker
+      run: sudo service docker restart
     
     - name: Free up disk space complete
       run: |
