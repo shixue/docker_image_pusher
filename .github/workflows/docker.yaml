@@ -47,6 +47,12 @@ jobs:
     - name: Docker Setup Buildx
       uses: docker/setup-buildx-action@v3
 
+    - name: Configure Docker Root to Large Space 
+      run: |
+        echo '{ "data-root": "/home/runner/work/docker_image_pusher/docker_image_pusher" }' | sudo tee /etc/docker/daemon.json
+        sudo systemctl daemon-reload
+        sudo systemctl start docker
+
     - name: Checkout Code
       uses: actions/checkout@v4
 
