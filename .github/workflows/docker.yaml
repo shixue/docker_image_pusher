@@ -31,6 +31,9 @@ jobs:
     - name: Maximize build space
       uses: easimon/maximize-build-space@master
       with:
+        root-reserve-mb: 1024
+        temp-reserve-mb: 256
+        swap-size-mb: 256
         overprovision-lvm: 'true'          
         remove-dotnet: 'true'
         # instead of using default value to mount to build path, /var/lib/docker/ is really the place we need more spaces.
