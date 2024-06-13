@@ -25,7 +25,7 @@ jobs:
         echo "=============================================================================="
         df -hT
         echo "=============================================================================="
-    
+        df -h /var/lib/docker
     - name: Freeing up disk space
       uses: easimon/maximize-build-space@master
       with: 
@@ -43,7 +43,7 @@ jobs:
         echo "=============================================================================="
         df -hT
         echo "=============================================================================="
-    
+        df -h /var/lib/docker
     - name: Docker Setup Buildx
       uses: docker/setup-buildx-action@v3
 
