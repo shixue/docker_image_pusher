@@ -18,7 +18,6 @@ jobs:
     name: Pull
     runs-on: ubuntu-latest
     steps:
-
     - name: Before freeing up disk space
       run: |
         echo "Before freeing up disk space"
