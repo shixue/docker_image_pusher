@@ -26,8 +26,6 @@ jobs:
         df -hT
         echo "=============================================================================="
         df -h /var/lib/docker
-    - name: Move /var/lib/docker/
-      run: sudo mv /var/lib/docker/ "${GITHUB_WORKSPACE}/docker"
 
     # 增加可用空间
     - name: Maximize build space
@@ -42,9 +40,6 @@ jobs:
         remove-codeql: 'true'
         build-mount-path: '/var/lib/docker/'
     
-    - name: Restore /var/lib/docker/
-      run: sudo sh -c "mv ${GITHUB_WORKSPACE}/docker/* /var/lib/docker"
-
     - name: Free up disk space complete
       run: |
         echo "Free up disk space complete"
