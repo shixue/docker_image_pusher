@@ -50,8 +50,7 @@ jobs:
     - name: Configure Docker Root to Large Space 
       run: |
         echo '{ "data-root": "/home/runner/work/docker_image_pusher/docker_image_pusher" }' | sudo tee /etc/docker/daemon.json
-        sudo systemctl daemon-reload
-        sudo systemctl start docker
+        sudo systemctl restart docker
 
     - name: Checkout Code
       uses: actions/checkout@v4
