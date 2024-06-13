@@ -28,13 +28,6 @@ jobs:
         df -h /var/lib/docker
 
     # 增加可用空间
-    - name: Backup docker files
-      run: |
-        echo "backup moby/buildkit image"
-        sudo docker image save -o ${GITHUB_WORKSPACE}/images.tar moby/buildkit
-        echo "Back up /var/lib/docker folder structure and other files"
-        sudo rsync -aPq /var/lib/docker/ ${GITHUB_WORKSPACE}/docker 
-
 
     - name: Maximize build space
       uses: easimon/maximize-build-space@master
@@ -44,13 +37,6 @@ jobs:
         # instead of using default value to mount to build path, /var/lib/docker/ is really the place we need more spaces.
         build-mount-path: '/var/lib/docker/'
 
-    - name: Restore docker files
-      run: |
-        sudo rsync -aPq ${GITHUB_WORKSPACE}/docker/ /var/lib/docker
-        sudo rm -rf ${GITHUB_WORKSPACE}/docker
-        sudo ls ${GITHUB_WORKSPACE} -l
-        sudo docker image load -i ${GITHUB_WORKSPACE}/images.tar
-        sudo rm ${GITHUB_WORKSPACE}/images.tar
     
     - name: Free up disk space complete
       run: |
@@ -59,16 +45,12 @@ jobs:
         df -hT
         echo "=============================================================================="
         df -h /var/lib/docker
-    - name: Docker Setup Buildx
-      uses: docker/setup-buildx-action@v3
-
-    - name: Configure Docker Root to Large Space 
-      run: |
-        echo '{ "data-root": "/home/runner/work/docker_image_pusher/docker_image_pusher" }' | sudo tee /etc/docker/daemon.json
-        sudo systemctl restart docker
-
+    
     - name: Checkout Code
       uses: actions/checkout@v4
+       
+    - name: Docker Setup Buildx
+      uses: docker/setup-buildx-action@v3
 
     - name: Build and push image Aliyun
       run: |
