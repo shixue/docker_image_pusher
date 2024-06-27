@@ -1,7 +1,7 @@
 docker.io/nginx
 bitnami/nginx
 hyperf/hyperf:8.2-alpine-v3.18-swoole
-redisfab/redis
+docker.io/redis
 nacos/nacos-server:v2.3.0
 nsqio/nsq
-mysql:5.7.15
+docker.io/mysql:5.7.15
